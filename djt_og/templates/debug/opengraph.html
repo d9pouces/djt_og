@@ -1,0 +1,59 @@
+{% load i18n static %}
+<h4>OpenGraph attributes</h4>
+{% if not is_valid %}
+<p>{% trans 'Some OpenGraph required attributes are missing. Please check <a href="https://opengraphprotocol.org">the official website</a> for more information.' %}</p>
+{% endif %}
+<table>
+    <thead>
+    <tr>
+        <th>{% trans "Variable" %}</th>
+        <th>{% trans "Value" %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for k, v in og_attrs.items %}
+    <tr class="{% cycle 'djDebugOdd' 'djDebugEven' %}">
+        <td><img
+                src="{% if v is None %}{% static 'admin/img/icon-no.svg' %}{% else %}{% static 'admin/img/icon-yes.svg' %}{% endif %}">
+            {{ k }}
+        </td>
+        <td>{{ v }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% if image %}<img src="{{ image }}" style="max-width: 40%; max-height: 20em">{% endif %}
+
+{% if comments %}
+<ul>
+    {% for comment in comments %}
+    <li>{{ comment }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h4>Other standard meta informations</h4>
+{% if title is not None %}
+<p>Page title (using the <strong>title</strong> tag): {{ title }}</p>
+{% else %}
+<p>{% trans "You should provide a title to your page" %}</p>
+{% endif %}
+<table>
+    <thead>
+    <tr>
+        <th>{% trans "Variable" %}</th>
+        <th>{% trans "Value" %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for k, v in meta_attrs.items %}
+    <tr class="{% cycle 'djDebugOdd' 'djDebugEven' %}">
+        <td><img
+                src="{% if v is None %}{% static 'admin/img/icon-no.svg' %}{% else %}{% static 'admin/img/icon-yes.svg' %}{% endif %}">
+            {{ k }}
+        </td>
+        <td>{% if v is None %}{% trans "(missing value)" %}{% else %}{{ v }}{% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
