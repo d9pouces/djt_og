@@ -69,7 +69,7 @@ class OpenGraphPanel(Panel):
             "img": static("admin/img/icon-no.svg"),
             "title": _("no OpenGraph metadata"),
         }
-        if stats["is_valid"]:
+        if stats.get("is_valid"):
             values["img"] = stats["image"] or static("admin/img/icon-yes.svg")
             values["title"] = stats["og_attrs"].get(
                 "title", _("missing OpenGraph title")
