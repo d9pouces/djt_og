@@ -51,8 +51,8 @@ class OpenGraphPanel(Panel):
     has_content = True
 
     def generate_stats(self, request: HttpRequest, response: HttpResponse):
-        content_type = response["Content-Type"]
-        if content_type.startswith("text/html") and (
+        content_type = response.get("Content-Type")
+        if content_type and content_type.startswith("text/html") and (
             response.status_code < 300 or response.status_code >= 400
         ):
             content_text = response.content
