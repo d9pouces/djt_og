@@ -3,7 +3,7 @@ djt_og
 
 Add a panel to [django-debug-toolbar](https://github.com/jazzband/django-debug-toolbar) that displays OpenGraph metadata found in your HTML page.
 
-![Screenshot](djt_og.png)
+![Screenshot](https://github.com/d9pouces/djt_og/raw/master/djt_og.png)
 
 
 Just install `djt-djt_og`...
