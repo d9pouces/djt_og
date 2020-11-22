@@ -5,7 +5,12 @@ Add a panel to [django-debug-toolbar](https://github.com/jazzband/django-debug-t
 
 ![Screenshot](djt_og.png)
 
-Just add "djt_og.panel.OpenGraphPanel" to your settings `DEBUG_TOOLBAR_PANELS`.
+
+Just install `djt-djt_og`...
+```bash
+python3 -m pip install djt-djt_og
+```
+... and add "djt_og.panel.OpenGraphPanel" to your settings `DEBUG_TOOLBAR_PANELS`.
 
 ```python
 # django-debug-toolbar
