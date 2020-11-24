@@ -66,8 +66,7 @@ class OpenGraphPanel(Panel):
     def nav_subtitle(self):
         stats = self.get_stats()
         template = (
-            "<img src='%(img)s' alt='OpenGraph image' "
-            "style='max-height: 2em; max-width: 3em; float: right'> %(title)s"
+            "<img src='%(img)s' alt='OpenGraph image'> %(title)s"
         )
         values = {
             "img": static("admin/img/icon-no.svg"),
